@@ -3,3 +3,10 @@ body {
     background-color: #808000;
     text-align: center;
 }
+h1 {
+    font-size: 5vw;
+    font-family: "Trebuchet MS" sans-serif;
+    letter-spacing: -2px;
+    border-bottom: 2px solid black;
+    text-transform: uppercase;
+}
