@@ -3,7 +3,8 @@ body {
     background-color: #808000;
     text-align: center;
 }
-h1 {
+a {
+    color: black;
     font-size: 5vw;
     font-family: "Trebuchet MS" sans-serif;
     letter-spacing: -2px;
