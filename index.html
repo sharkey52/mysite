@@ -6,31 +6,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="stylesheet.css">
+
+<style>
+    .sidenav {
+        height: 100%;
+        width:0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: black;
+        overflow-x: hidden;
+        transition: 1s;
+        padding-top: 60px;
+        text-align: center;
+
+    }
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #d2d42e;
+        display: block;
+        transition: 0.5s;
+
+    }
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+
+    }
+    @media  screen and (max-height:450px){
+        .sidenav {padding-top: 15px;}
+        .sidenav a{font-size: 18px;}  
+    }
+</style>
+
 </head>
 <body>
- <h1> 36ENGR REME Workshop </h1>    
+ <h1 onclick="openNav()"> 36ENGR REME Workshop </h1>    
  <img src="remecapbadge.svg" width="50" height="50">
  <p>Created by LCPL Sharkey</p> 
-<ul>
-    <li><A HREF = "pages/profile.html">Profile</A></li>
-    <li><A HREF = "pages/tdol.html">TDOL numbers</A></li>
-    <li><A HREF = "pages/signout.html">Equipment sign out</A></li>
-    <li><A HREF = "pages/duties.html">Duties</A></li>
-    <li><A HREF = "pages/responsibilities.html">Responsibilities</A></li>
-    <li><A HREF = "pages/nsns.html">Useful NSNs</A></li>
-    <li><A HREF = "pages/radio.html">Radio</A></li>
-    <li><A HREF = "pages/workshoppay.html">Workshop payments</A></li>
-    <li><A HREF = "pages/rbt.html">Brake test walkthrough</A></li>
-    <li><A HREF = "pages/clubpay.html">Club bills payments</A></li>
-    <li><A HREF = "pages/friday.html">Friday cleanup checklist</A></li>
-    <li><A HREF = "pages/crafty.html">Duty crafty checklist</A></li>
-    <li><A HREF = "pages/tacho.html">Tachograph</A></li>
-    <li><A HREF = "pages/pool.html">Pool leaderboard</A></li>
-    <li><A HREF = "pages/coshh.html">COSHH checklist with NSNs</A></li>
-    <li><A HREF = "pages/toolbox.html">Toolbox checklist with NSNs</A></li>
-    <li><A HREF = "pages/order.html">Order sheet filler</A></li>
- 
-</ul>
+
+ <div id="mysidenav" class="sidenav">
+    <ul>
+        <li><A HREF = "pages/profile.html">Profile</A></li>
+        <li><A HREF = "pages/tdol.html">TDOL numbers</A></li>
+        <li><A HREF = "pages/signout.html">Equipment sign out</A></li>
+        <li><A HREF = "pages/duties.html">Duties</A></li>
+        <li><A HREF = "pages/responsibilities.html">Responsibilities</A></li>
+        <li><A HREF = "pages/nsns.html">Useful NSNs</A></li>
+        <li><A HREF = "pages/radio.html">Radio</A></li>
+        <li><A HREF = "pages/workshoppay.html">Workshop payments</A></li>
+        <li><A HREF = "pages/rbt.html">Brake test walkthrough</A></li>
+        <li><A HREF = "pages/clubpay.html">Club bills payments</A></li>
+        <li><A HREF = "pages/friday.html">Friday cleanup checklist</A></li>
+        <li><A HREF = "pages/crafty.html">Duty crafty checklist</A></li>
+        <li><A HREF = "pages/tacho.html">Tachograph</A></li>
+        <li><A HREF = "pages/pool.html">Pool leaderboard</A></li>
+        <li><A HREF = "pages/coshh.html">COSHH checklist with NSNs</A></li>
+        <li><A HREF = "pages/toolbox.html">Toolbox checklist with NSNs</A></li>
+        <li><A HREF = "pages/order.html">Order sheet filler</A></li>
+    
+    </ul>
+</div>
+
+<script>
+function openNav() {
+    document.getElementById("mysidenav").style.width = "100%";
+}
+function closeNav() {
+    document.getElementById("mysidenav").style.width = "0";
+} 
+</script>
  
  
 
