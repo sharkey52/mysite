@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: #ad1a8d;
+    background-color: #ad971a;
     text-align: center;
 }
 a {
@@ -10,4 +10,14 @@ a {
     letter-spacing: -2px;
     border-bottom: 2px solid black;
     text-transform: uppercase;
+}
+ul {
+    list-style: none;
+}
+#drop-area {
+    border: 2px dashed #ccc;
+    border-radius: 20px;
+    width: 480px;
+    margin: 100px auto;
+    padding: 20px;
 }
