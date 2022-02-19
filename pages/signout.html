@@ -10,25 +10,33 @@
 <body>
     <h1> <A HREF = "../index.html">Equipment sign-out</A></h1>  
 
-    <video src="" ></video>
-    <br />
-<button id='flipCamera'>Flip</button>
-</body>
+    <script src="html5-qrcode.min.js"></script>
+    <div style="width: 500px" id="reader"></div>
 <script>
-  var front = false;
-  var video = document.querySelector('video');
-  document.getElementById('flipCamera').onclick = function() { front = !front; };
-  var constraints = { video: { facingMode: (front? "user" : "environment"), width: 100, height: 100  } };
-  navigator.mediaDevices.getUserMedia(constraints)
-  .then(function(mediaStream) {
-    video.srcObject = mediaStream;
-    video.onloadedmetadata = function(e) {
-    video.play();
-};
-})
-.catch(function(err) { console.log(err.name + ": " + err.message); })
-</script></html>
- 
+    function onScanSuccess(decodedText, decodedResult) {
+        // Handle on success condition with the decoded text or result.
+        console.log(`Scan result: ${decodedText}`, decodedResult);
+    }
+    
+    var html5QrcodeScanner = new Html5QrcodeScanner(
+        "reader", { fps: 10, qrbox: 250 });
+    html5QrcodeScanner.render(onScanSuccess);
+
+    var html5QrcodeScanner = new Html5QrcodeScanner(
+    "reader", { fps: 10, qrbox: 250 });
+
+
+        
+    function onScanSuccess(decodedText, decodedResult) {
+    // Handle on success condition with the decoded text or result.
+    console.log(`Scan result: ${decodedText}`, decodedResult);
+    // ...
+    html5QrcodeScanner.clear();
+    // ^ this will stop the scanner (video feed) and clear the scan area.
+}
+</script>
+
+html5QrcodeScanner.render(onScanSuccess);
 
 
 </body>
