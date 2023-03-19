@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Countdown</title>
+    <style>
+      body {
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: turquoise;
+        font-size: 24px;
+        font-family: Arial, sans-serif;
+        height: 100vh;
+        margin: 0;
+      }
+
+      #icons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-top: 50px;
+      }
+
+      #icons a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        background-color: turquoise;
+        color: black;
+        text-decoration: none;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 20px;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+      }
+
+      #icons a:hover {
+        background-color: black;
+        color: turquoise;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      Days remaining: <span id="days"></span>
+    </div>
+    <div>
+      Workdays remaining: <span id="workdays"></span>
+    </div>
+    <div>
+      Mondays remaining: <span id="mondays"></span>
+    </div>
+    <div id="icons">
+      <a href="blank.html">
+        <img src="icon1.png" alt="Icon 1">
+      </a>
+      <a href="blank.html">
+        <img src="icon2.png" alt="Icon 2">
+      </a>
+    </div>
+    <script>
+      const feb1st2024 = new Date("2024-02-01T00:00:00");
+      const oneDay = 24 * 60 * 60 * 1000;
+      const today = new Date();
+      const daysRemaining = Math.ceil(
+        (feb1st2024.getTime() - today.getTime()) / oneDay
+      );
+      document.getElementById("days").textContent = daysRemaining;
+
+      const weekdays = [1, 2, 3, 4, 5];
+      const workdaysRemaining = weekdays.reduce(
+        (count, weekday) =>
+          count +
+          Math.ceil(
+            (feb1st2024.getTime() - getClosestWeekday(weekday).getTime()) / oneDay
+          ),
+        0
+      );
+      document.getElementById("workdays").textContent = workdaysRemaining;
+
+      const mondaysRemaining = Math.ceil(
+        (feb1st2024.getTime() - getClosestWeekday(1).getTime()) / oneDay
+      );
+      document.getElementById("mondays").textContent = mondaysRemaining;
+
+      function getClosestWeekday(weekday) {
+        const targetDate = new Date(feb1st2024.getTime());
+        targetDate.setDate(targetDate.getDate() - 1); // Start at the day before feb1st2024
+        while (targetDate.getDay() !== weekday) {
+          targetDate.setDate(targetDate.getDate() - 1);
+        }
+        return targetDate;
+      }
+    </script>
+  </body>
+</html>
